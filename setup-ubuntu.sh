@@ -2,9 +2,9 @@
 
 lsb_release -a
 
-# Prep .bashrc symlink
+# Prep .bashrc link
 if ! test -f .bashrc; then
-    ln -s ~/.bashrc .bashrc
+    ln ~/.bashrc .bashrc
 fi
 
 echo "🌈Ubuntu🌈"
