@@ -10,7 +10,7 @@ fi
 echo "🌈Ubuntu🌈"
 sudo apt-get update -y \
 && sudo apt-get upgrade \
-&& sudo apt-get install build-essential -y
+&& sudo apt-get install build-essential jq silversearcher-ag -y
 
 if ! test -f ~/.ssh/id_rsa.pub; then
     echo "🌈SSH Key🌈"
@@ -24,12 +24,13 @@ if ! test -f ~/.gitconfig; then
     echo "🌈Git🌈"
     git config --global alias.ci commit
     git config --global alias.st status
-    echo "Enter git user.email"
+    echo "Enter git user.email:"
     read git_user_email
     git config --global user.email "$git_user_email"
-    echo "Enter git user.name"
+    echo "Enter git user.name:"
     read git_user_name
     git config --global user.name "$git_user_name"
+    cat ~/.gitconfig
 else
     echo "⏩Git Skipped⏩"
 fi
