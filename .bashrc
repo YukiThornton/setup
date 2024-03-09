@@ -116,9 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Haskell
-[ -f "/home/yuki/.ghcup/env" ] && source "/home/yuki/.ghcup/env" # ghcup-env
-
 # HSTR configuration - add this to ~/.bashrc
 alias hh=hstr                    # hh to be alias for hstr
 export HSTR_CONFIG=hicolor       # get more colors
@@ -133,3 +130,5 @@ if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 export HSTR_TIOCSTI=y
 
+# Haskell
+[ -f "/home/yuki/.ghcup/env" ] && source "/home/yuki/.ghcup/env" # ghcup-env

@@ -2,11 +2,6 @@
 
 lsb_release -a
 
-# Prep .bashrc link
-if ! test -f .bashrc; then
-    ln ~/.bashrc .bashrc
-fi
-
 echo "🌈Ubuntu🌈"
 sudo apt-get update -y \
 && sudo apt-get upgrade \
@@ -51,9 +46,16 @@ fi
 if ! hash ghcup; then
     echo "🌈Haskell (GHC, Cabal, HLS, Stack)🌈"
     curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-    ghc --version
-    cabal --version
-    ghcup --version
+    ghcup install ghc latest && ghcup set ghc latest
+    ghcup install cabal latest && ghcup set cabal latest
+    ghcup install hls latest && ghcup set hls latest
+    ghcup install stack latest && ghcup set stack latest
+    ghcup list | grep ✔✔
 else
     echo "⏩Haskell Skipped⏩"
+fi
+
+# Prep .bashrc link
+if ! test -f .bashrc; then
+    ln ~/.bashrc .bashrc
 fi
