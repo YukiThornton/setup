@@ -5,7 +5,10 @@ lsb_release -a
 echo "🌈Ubuntu🌈"
 sudo apt-get update -y \
 && sudo apt-get upgrade \
-&& sudo apt-get install build-essential jq silversearcher-ag -y
+&& sudo apt-get install build-essential libz-dev \
+curl libffi-dev libffi8ubuntu1 libgmp-dev \
+libgmp10 libncurses-dev libncurses5 libtinfo5 \
+jq silversearcher-ag -y
 
 if ! test -f ~/.ssh/id_rsa.pub; then
     echo "🌈SSH Key🌈"
